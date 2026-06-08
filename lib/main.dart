@@ -50,6 +50,10 @@ class TeamAndroidHomePage extends StatelessWidget {
     '不能使用手机直接截图代替照片。',
     '必须用第二部手机拍摄，并拍到手持真机。',
     '照片需发到小组，并加入 GitHub README。',
+    'Flutter Android 真机运行需在真实设备上成功运行。',
+    'GitHub 协作需通过 Fork + Pull Request 流程提交。',
+    '组长审核通过后合并到 main 分支才算完成。',
+    '照片需清晰展示应用界面和手持场景。',
   ];
 
   @override
