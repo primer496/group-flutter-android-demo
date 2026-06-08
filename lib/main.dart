@@ -40,9 +40,9 @@ class TeamAndroidHomePage extends StatelessWidget {
     TeamMember(role: '组员 A', name: '张春瑾', task: '修改应⽤标题和项⽬⼝号'),
     TeamMember(role: '组员 B', name: '宋阳', task: '修改成员信息和分⼯'),
     TeamMember(role: '组员 C', name: '张景涛', task: '修改真机运⾏任务列表'),
-    TeamMember(role: '组员 D', name: '李天宇', task: '修改证据说明和 README 照⽚说明'),、
-    TeamMember(role: '组员 E', name: '徐冲', task: '测试设备与实验信息'),、
-    TeamMember(role: '组员 F', name: '杨航', task: '负责 README 的项目文档完善（运行说明、成员表格、环境要求）'),、
+    TeamMember(role: '组员 D', name: '李天宇', task: '修改证据说明和 README 照⽚说明'),
+    TeamMember(role: '组员 E', name: '徐冲', task: '测试设备与实验信息'),
+    TeamMember(role: '组员 F', name: '杨航', task: '负责 README 的项目文档完善（运行说明、成员表格、环境要求）'),
   ];
 
   static const List<String> androidTasks = [
