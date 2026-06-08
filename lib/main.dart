@@ -28,6 +28,13 @@ class TeamAndroidHomePage extends StatelessWidget {
   static const String projectSlogan = '7人协作，一次跑通Android真机';
   static const String deviceProof = '最终证据：用第二部手机拍摄手持 Android 真机运行照片，并加入 GitHub README。';
 
+  static const String experimentTopic = 'GitHub 协作与 Flutter Android 真机运行案例';
+  static const String experimentGoal = '证明 7 人小组确实完成了 GitHub 多人协作，并且最终的 Flutter 成果确实成功运行到了真实的 Android 手机上。';
+  static const String teamScale = '7 人小组（包含 1 名组长和 6 名组员）';
+  static const String techStack = 'Flutter SDK、Dart 语言、GitHub 版本控制平台、Android SDK 组件以及 ADB (Android Debug Bridge) 真机调试工具';
+  static const String experimentFlow = '涵盖本地开发环境预检配置、GitHub 多分支拉取与 PR 提交/合并、手机开启 USB 联调授权，以及最终通过命令行将应用部署到真实设备。';
+  static const String deliverables = '包含 7 人完整 Fork、分支、Commit 以及 Pull Request 协作记录的 GitHub 最终主仓库；内嵌合格真机照片证据（必须由第二部手机拍摄的手持真机运行画面）的 README 文档。';
+
   static const List<TeamMember> members = [
     TeamMember(role: '组长', name: '胡玮明', task: '创建原始仓库，审核 PR，组织最终真机运⾏和提交'),
     TeamMember(role: '组员 A', name: '张春瑾', task: '修改应⽤标题和项⽬⼝号'),
@@ -54,6 +61,10 @@ class TeamAndroidHomePage extends StatelessWidget {
     '不能使用手机直接截图代替照片。',
     '必须用第二部手机拍摄，并拍到手持真机。',
     '照片需发到小组，并加入 GitHub README。',
+    'Flutter Android 真机运行需在真实设备上成功运行。',
+    'GitHub 协作需通过 Fork + Pull Request 流程提交。',
+    '组长审核通过后合并到 main 分支才算完成。',
+    '照片需清晰展示应用界面和手持场景。',
   ];
 
   @override
@@ -64,6 +75,10 @@ class TeamAndroidHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: const [
           HeroSection(),
+          SizedBox(height: 20),
+          ExperimentInfoSection(),
+          SizedBox(height: 20),
+          TestDevicesSection(),
           SizedBox(height: 20),
           MembersSection(),
           SizedBox(height: 20),
@@ -179,6 +194,180 @@ class EvidenceSection extends StatelessWidget {
       ),
     );
   }
+}
+
+class ExperimentInfoSection extends StatelessWidget {
+  const ExperimentInfoSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.blue.shade50,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              '实验概述',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.blue),
+            ),
+            SizedBox(height: 16),
+            InfoItem(
+              icon: Icons.bookmark,
+              label: '实验主题',
+              value: TeamAndroidHomePage.experimentTopic,
+            ),
+            SizedBox(height: 12),
+            InfoItem(
+              icon: Icons.check_circle,
+              label: '核心目标',
+              value: TeamAndroidHomePage.experimentGoal,
+            ),
+            SizedBox(height: 12),
+            InfoItem(
+              icon: Icons.group,
+              label: '协作规模',
+              value: TeamAndroidHomePage.teamScale,
+            ),
+            SizedBox(height: 12),
+            InfoItem(
+              icon: Icons.code,
+              label: '核心技术栈与工具链',
+              value: TeamAndroidHomePage.techStack,
+            ),
+            SizedBox(height: 12),
+            InfoItem(
+              icon: Icons.route,
+              label: '实验核心流程',
+              value: TeamAndroidHomePage.experimentFlow,
+            ),
+            SizedBox(height: 12),
+            InfoItem(
+              icon: Icons.description,
+              label: '预期交付物',
+              value: TeamAndroidHomePage.deliverables,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class InfoItem extends StatelessWidget {
+  const InfoItem({
+    required this.icon,
+    required this.label,
+    required this.value,
+    super.key,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, color: Colors.blue, size: 20),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+              const SizedBox(height: 4),
+              Text(value),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class TestDevicesSection extends StatelessWidget {
+  const TestDevicesSection({super.key});
+
+  static const List<DeviceInfo> devices = [
+    DeviceInfo(
+      name: '测试手机',
+      icon: Icons.smartphone,
+      type: '手机',
+      specs: [
+        '手机型号：OPPO K12x 5G',
+        '操作系统：ColorOS 15.0',
+        '处理器：高通骁龙 695 5G 八核',
+        '运行内存：12.0 GB + 12.0 GB（支持虚拟内存扩展）',
+        '存储空间：256 GB',
+      ],
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          '测试设备',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 12),
+        ...devices.map((device) => DeviceCard(device: device)),
+      ],
+    );
+  }
+}
+
+class DeviceCard extends StatelessWidget {
+  const DeviceCard({required this.device, super.key});
+
+  final DeviceInfo device;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(device.icon, size: 32, color: Colors.teal),
+            const SizedBox(height: 8),
+            Text(
+              device.name,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Text(device.type, style: const TextStyle(color: Colors.grey)),
+            const SizedBox(height: 8),
+            ...device.specs.map((spec) => Text(
+                  spec,
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DeviceInfo {
+  const DeviceInfo({
+    required this.name,
+    required this.icon,
+    required this.type,
+    required this.specs,
+  });
+
+  final String name;
+  final IconData icon;
+  final String type;
+  final List<String> specs;
 }
 
 class TeamMember {
