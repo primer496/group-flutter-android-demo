@@ -29,11 +29,13 @@ class TeamAndroidHomePage extends StatelessWidget {
   static const String deviceProof = '最终证据：用第二部手机拍摄手持 Android 真机运行照片，并加入 GitHub README。';
 
   static const List<TeamMember> members = [
-    TeamMember(role: '组长', name: '李组长', task: '创建仓库、维护 main、审核 PR、组织主电脑和主手机完成真机运行'),
-    TeamMember(role: '组员 A', name: '成员 A', task: '修改应用标题 projectTitle 和项目口号 projectSlogan'),
-    TeamMember(role: '组员 B', name: '成员 B', task: '补充 members 中的小组成员姓名与分工'),
-    TeamMember(role: '组员 C', name: '成员 C', task: '补充 androidTasks 中的真机运行检查任务'),
-    TeamMember(role: '组员 D', name: '成员 D', task: '补充 evidenceNotes 中的拍照和 README 证据说明'),
+    TeamMember(role: '组长', name: '胡玮明', task: '创建原始仓库，审核 PR，组织最终真机运⾏和提交'),
+    TeamMember(role: '组员 A', name: '张春瑾', task: '修改应⽤标题和项⽬⼝号'),
+    TeamMember(role: '组员 B', name: '宋阳', task: '修改成员信息和分⼯'),
+    TeamMember(role: '组员 C', name: '张景涛', task: '修改真机运⾏任务列表'),
+    TeamMember(role: '组员 D', name: '李天宇', task: '修改证据说明和 README 照⽚说明'),、
+    TeamMember(role: '组员 E', name: '徐冲', task: '测试设备与实验信息'),、
+    TeamMember(role: '组员 F', name: '杨航', task: '负责 README 的项目文档完善（运行说明、成员表格、环境要求）'),、
   ];
 
   static const List<String> androidTasks = [
